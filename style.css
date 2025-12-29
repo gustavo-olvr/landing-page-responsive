@@ -1,0 +1,399 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ROLAGEM SUAVE */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== VARIÁVEIS ===== */
+:root {
+  --cor-principal: #d4a574;     /* Dourado quente */
+  --cor-secundaria: #8c6b4f;    /* Marrom médio */
+  --cor-escura: #1a120b;        /* Marrom escuro quase preto */
+  --cor-clara: #f5f5dc;         /* Bege claro */
+  --cor-texto: #f1f1f1;         /* Texto claro */
+  --cor-branca: #ffffff;
+}
+
+/* ===== BASE ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--cor-texto);
+  line-height: 1.6;
+  background: var(--cor-escura);
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: rgba(20, 10, 5, 0.9);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between; /* Logo à esquerda, menu à direita */
+  align-items: center;
+  padding: 0 40px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cor-principal);
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--cor-clara);
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  color: var(--cor-principal);
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  color: var(--cor-branca);
+  padding: 140px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 🎬 Vídeo de fundo */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* 🌑 Camada escura sobre o vídeo */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
+}
+
+.hero h1 {
+  font-size: 56px;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  color: var(--cor-principal);
+}
+
+.hero p {
+  font-size: 20px;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--cor-principal);
+  color: var(--cor-escura);
+  padding: 15px 40px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: var(--cor-branca);
+  transform: translateY(-3px);
+}
+
+/* ===== FUNDO DAS SEÇÕES ===== */
+.sobre, .produtos, .contato {
+  position: relative;
+  z-index: 1;
+  background-image: url('imagens/cafeteria-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* 🌑 camada escura sobre a imagem de fundo */
+.sobre::before,
+.produtos::before,
+.contato::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 5, 2, 0.7);
+  z-index: -1;
+}
+
+/* ===== SEÇÃO SOBRE ===== */
+.sobre {
+  padding: 80px 0;
+}
+
+.sobre-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.sobre-imagem {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.sobre-imagem img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.sobre-imagem:hover img {
+  transform: scale(1.05);
+}
+
+.sobre-texto h2 {
+  font-size: 42px;
+  color: var(--cor-principal);
+  margin-bottom: 20px;
+}
+
+.sobre-texto p {
+  font-size: 18px;
+  color: var(--cor-clara);
+  margin-bottom: 15px;
+}
+
+/* ===== PRODUTOS ===== */
+.produtos {
+  padding: 80px 0;
+}
+
+.produtos h2 {
+  text-align: center;
+  font-size: 42px;
+  color: var(--cor-principal);
+  margin-bottom: 50px;
+}
+
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.produto-card {
+  background: rgba(30, 20, 10, 0.9);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+}
+
+.produto-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.produto-imagem {
+  height: 250px;
+  overflow: hidden;
+}
+
+.produto-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.produto-card:hover .produto-imagem img {
+  transform: scale(1.1);
+}
+
+.produto-info {
+  padding: 25px;
+}
+
+.produto-info h3 {
+  font-size: 24px;
+  color: var(--cor-principal);
+  margin-bottom: 10px;
+}
+
+.produto-info p {
+  color: #ddd;
+  margin-bottom: 15px;
+}
+
+.preco {
+  font-size: 26px;
+  color: var(--cor-principal);
+  font-weight: 600;
+}
+
+/* ===== CONTATO ===== */
+.contato {
+  padding: 80px 0;
+  color: var(--cor-clara);
+}
+
+.contato h2 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: var(--cor-principal);
+}
+
+.contato p {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--cor-principal);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(50, 35, 25, 0.9);
+  color: var(--cor-branca);
+  font-size: 16px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+button {
+  width: 100%;
+  background: var(--cor-principal);
+  color: var(--cor-escura);
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: var(--cor-branca);
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0d0703;
+  color: var(--cor-principal);
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer p {
+  opacity: 0.8;
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .sobre-content {
+    grid-template-columns: 1fr;
+  }
+
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 80px 0;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .sobre-texto h2,
+  .produtos h2,
+  .contato h2 {
+    font-size: 32px;
+  }
+}
